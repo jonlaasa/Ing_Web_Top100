@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Lista de Estilos Musicales{% endblock %}
+
+{% block contenido %}
+<h2>Lista de Estilos Musicales</h2>
+
+<ul>
+    {% for estilo in estilos %}
+        <li>
+            <a href="{% url 'detalles_estilo' estilo.id %}">{{ estilo.nombre }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

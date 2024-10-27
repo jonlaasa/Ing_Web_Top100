@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Top 100 Canciones{% endblock %}
+
+{% block contenido %}
+<h2>Top 100 Canciones por Estilo</h2>
+
+
+{% for estilo, cancion in top_canciones_por_estilo %}
+    <h3>Mejor canción de {{ estilo.nombre }}</h3> 
+    <ul>
+        <li>
+            <a href="{% url 'detalles_cancion' cancion.id %}">{{ cancion.titulo }}</a> 
+            - {{ cancion.interprete.nombre }} (Ranking: {{ cancion.ranking }})
+        </li>
+    </ul>
+{% endfor %}
+{% endblock %}

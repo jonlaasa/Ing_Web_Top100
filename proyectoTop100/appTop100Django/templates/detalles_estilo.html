@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Detalles de Estilo{% endblock %}
+
+{% block contenido %}
+<h2>Estilo: {{ estilo.nombre }}</h2>
+<h3>Mejores Canciones</h3>
+
+<ul>
+    {% for cancion in estilo.cancion_set.all %} 
+        <li>
+            <a href="{% url 'detalles_cancion' cancion.id %}">{{ cancion.titulo }}</a> 
+            - {{ cancion.intepretes.first.nombre }} (Ranking: {{ cancion.ranking }})
+        </li>
+    {% empty %}
+        <li>No hay canciones disponibles para este estilo.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'lista_estilos' %}">Volver a la lista de estilos</a>
+{% endblock %}

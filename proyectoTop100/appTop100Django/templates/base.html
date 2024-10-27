@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block titulo %}Top 100 de Música{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Top 100 de Música</h1>
+    <nav>
+        <a href="{% url 'index' %}">Inicio</a>
+        <a href="{% url 'lista_canciones' %}">Lista de Canciones</a> 
+        <a href="{% url 'lista_estilos' %}">Estilos Musicales</a> 
+        <a href="{% url 'lista_interpretes' %}">Interpretes</a> 
+    </nav>
+</header>
+
+<!-- Main Content Area -->
+<div class="container">
+    {% block contenido %}
+    <!-- Aquí va el contenido específico de cada página -->
+    {% endblock %}
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Top 100 de Música. Todos los derechos reservados.</p>
+    <p>Desarrollado como parte del proyecto musical.</p>
+</footer>
+
+</body>
+</html>

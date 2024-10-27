@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Lista de Canciones{% endblock %}
+
+{% block contenido %}
+<h2>Lista de Canciones</h2>
+
+<ul>
+    {% for cancion in canciones %}
+        <li>
+            <a href="{% url 'detalles_cancion' cancion.id %}">{{ cancion.titulo }}</a> 
+            - {{ cancion.interprete.nombre }} (Ranking: {{ cancion.ranking }})
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
