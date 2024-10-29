@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
+    background-color: #eb1111;
     color: #333;
     margin: 0;
     padding: 0;
@@ -26,7 +26,7 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: rgb(235, 24, 24);
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
@@ -34,7 +34,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #61dafb;
+    color: #fbb361;
 }
 
 /* Main Content Styles */
