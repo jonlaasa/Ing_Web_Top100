@@ -25,6 +25,6 @@ class Cancion(models.Model):
     # FOREIGN
     estilo = models.ForeignKey(Estilo, on_delete=models.CASCADE)
     intepretes = models.ManyToManyField(Interprete) 
-    
+    imagen = models.ImageField(upload_to='canciones/', blank=True, null=True)  
     def __str__(self):
         return self.titulo 
