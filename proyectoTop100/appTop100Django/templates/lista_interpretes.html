@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Lista de Intérpretes{% endblock %}
+
+{% block contenido %}
+<h2>Lista de Intérpretes</h2>
+
+<ul>
+    {% for interprete in interpretes %}
+        <li>
+            <a href="{% url 'detalles_interprete' interprete.id %}">{{ interprete.nombre }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

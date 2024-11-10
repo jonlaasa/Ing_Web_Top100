@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Detalles de Canción{% endblock %}
+
+{% block contenido %}
+<h2>{{ cancion.titulo }} - Detalles</h2>
+
+{% if cancion.imagen %}
+    <img src="{{ cancion.imagen.url }}" alt="Imagen de {{ cancion.titulo }}" style="max-width: 300px; height: auto;">
+{% else %}
+    <p>No hay imagen disponible para esta canción.</p>
+{% endif %}
+
+<p><strong>Interprete(s):</strong>
+    {% for interprete in cancion.intepretes.all %}
+        {{ interprete.nombre }}{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+</p>
+<p><strong>Ranking:</strong> {{ cancion.ranking }}</p>
+<p><strong>Estilo:</strong> {{ cancion.estilo.nombre }}</p>
+<p><strong>Descripción:</strong> {{ cancion.descripcion }}</p>
+
+<a href="{% url 'lista_canciones' %}">Volver a la lista de canciones</a>
+{% endblock %}

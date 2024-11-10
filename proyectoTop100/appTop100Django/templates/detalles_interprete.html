@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Detalles de Intérprete{% endblock %}
+
+{% block contenido %}
+<h2>Intérprete: {{ interprete.nombre }}</h2>
+
+{% if interprete.imagen %}
+    <img src="{{ interprete.imagen.url }}" alt="{{ interprete.nombre }}" style="max-width: 300px; height: auto;">
+{% else %}
+    <p>No hay imagen disponible para este intérprete.</p>
+{% endif %}
+
+<h3>Canciones</h3>
+<ul>
+    {% for cancion in interprete.cancion_set.all %} 
+        <li>
+            <a href="{% url 'detalles_cancion' cancion.id %}">{{ cancion.titulo }}</a> 
+            (Ranking: {{ cancion.ranking }})
+        </li>
+    {% empty %}
+        <li>No hay canciones disponibles para este intérprete.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'lista_interpretes' %}">Volver a la lista de intérpretes</a>
+{% endblock %}
