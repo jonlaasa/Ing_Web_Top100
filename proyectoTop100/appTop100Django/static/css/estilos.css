@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #0d0e13; /* Fondo oscuro */
+    background-color: #ffffff; /* Fondo oscuro */
     color: #e0e0e0; /* Texto claro para contraste */
     margin: 0;
     padding: 0;
@@ -202,4 +202,3 @@ a.button:hover {
 .carousel-control:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
- 
