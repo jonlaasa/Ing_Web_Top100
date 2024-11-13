@@ -1,16 +1,28 @@
-{% extends 'base.html' %}
+{% extends 'base_listas.html' %}
 
-{% block titulo %}Lista de Canciones{% endblock %}
+{% load static %}
 
-{% block contenido %}
-<h2>Lista de Canciones</h2>
+{% block banner %}
+<div class="banner-content">
+    <img src="{% static 'images/canciones_banner.jpg' %}" alt="Banner de Canciones" class="banner-image">
+        <div class="banner-overlay">
+            <h2>Encuentra tus Canciones Favoritas</h2>
+            <p>Explora las mejores Canciones de cualquier genero</p>
+            <a href="https://www.youtube.com/watch?v=9Jlb28cIrDk" class="button" target="_blank">Descubre más</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
-<ul>
-    {% for cancion in canciones %}
-        <li>
-            <a href="{% url 'detalles_cancion' cancion.id %}">{{ cancion.titulo }}</a> 
-            - {{ cancion.interprete.nombre }} (Ranking: {{ cancion.ranking }})
-        </li>
-    {% endfor %}
-</ul>
+{% block contenido_principal %}
+    <h2>Lista de Canciones</h2>
+    <ul>
+        {% for cancion in canciones %}
+            <li>
+                <a href="{% url 'detalles_cancion' cancion.id %}">
+                    {{ cancion.titulo }}
+                </a> - {{ cancion.interprete.nombre }} (Ranking Global: {{ cancion.ranking }})
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

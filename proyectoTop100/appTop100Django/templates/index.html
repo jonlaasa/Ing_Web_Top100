@@ -11,7 +11,7 @@
     <ul>
         <li>
             <a href="{% url 'detalles_cancion' cancion.id %}">{{ cancion.titulo }}</a> 
-            - {{ cancion.interprete.nombre }} (Ranking: {{ cancion.ranking }})
+            - {{ cancion.interprete.nombre }} (Global Ranking: {{ cancion.ranking }})
         </li>
     </ul>
 {% endfor %}

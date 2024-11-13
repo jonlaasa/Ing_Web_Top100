@@ -1,10 +1,23 @@
-{% extends 'base.html' %}
+{% extends 'base_listas.html' %}
 
 {% block titulo %}Lista de Intérpretes{% endblock %}
 
-{% block contenido %}
-<h2>Lista de Intérpretes</h2>
+{% load static %}
 
+{% block banner %}
+<div class="banner-content">
+    <img src="{% static 'images/interpretes_banner.jpg' %}" alt="Banner de Interpretes" class="banner-image">
+        <div class="banner-overlay">
+            <h2>Encuentra tu Interprete favorito</h2>
+            <p>Explora los mejores Interpretes y sus canciones</p>
+            <a href="https://es.wikipedia.org/wiki/Anexo:Artistas_m%C3%A1s_escuchados_en_Spotify" class="button" target="_blank">Descubre más</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block contenido_principal %}
+<h2>Lista de Intérpretes</h2>
 <ul>
     {% for interprete in interpretes %}
         <li>

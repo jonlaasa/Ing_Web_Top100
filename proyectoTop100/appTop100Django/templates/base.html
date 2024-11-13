@@ -1,38 +1,43 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <title>{% block titulo %}Top 100 de Música{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="icon" href="{% static 'images/icon_music.ico' %}" type="image/x-icon">
 </head>
 <body>
 
 <div class="wrapper">
     <!-- Header -->
     <header>
-        <h1>Top 100 de Música</h1>
+        <div class="logo-titulo">
+            <img class="logo" src="{% static 'images/Logo_Music.png' %}" alt="Logo de Música">
+            <h1 class="titulo">Top 100 de Musica</h1>
+        </div>
         <nav>
+        <ul class="nav-titulos">
             <a href="{% url 'index' %}">Inicio</a>
-            <a href="{% url 'lista_canciones' %}">Lista de Canciones</a> 
-            <a href="{% url 'lista_estilos' %}">Estilos Musicales</a> 
-            <a href="{% url 'lista_interpretes' %}">Interpretes</a> 
+            <a href="{% url 'lista_canciones' %}">Canciones</a> 
+            <a href="{% url 'lista_estilos' %}">Estilos</a> 
+            <a href="{% url 'lista_interpretes' %}">Intérpretes</a> 
+        </ul>
         </nav>
     </header>
 
     <!-- Main Content Area -->
-    <div class="container">
+    <div class="contenido">
         {% block contenido %}
-        <!-- Aquí va el contenido específico de cada página -->
+        <!-- Contenido de cada página -->
         {% endblock %}
     </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Top 100 de Música. Todos los derechos reservados.</p>
-        <p>Desarrollado como parte del proyecto musical.</p>
     </footer>
 </div>
 

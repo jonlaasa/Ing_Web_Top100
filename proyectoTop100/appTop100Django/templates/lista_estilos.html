@@ -1,8 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'base_listas.html' %}
 
 {% block titulo %}Lista de Estilos Musicales{% endblock %}
 
-{% block contenido %}
+{% load static %}
+
+{% block banner %}
+<div class="banner-content">
+<img src="{% static 'images/estilos_banner.jpg' %}" alt="Banner de Estilos Musicales" class="banner-image">
+        <div class="banner-overlay">
+            <h2>Encuentra tu Género favorito</h2>
+            <p>Explora las canciones de los mejores géneros</p>
+            <a href="https://legismusic.com/es/generos-musicales/" class="button" target="_blank">Descubre más</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block contenido_principal %}
 <h2>Lista de Estilos Musicales</h2>
 
 <ul>

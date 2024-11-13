@@ -8,7 +8,7 @@ def index(request):
     estilos = Estilo.objects.all()  # Obtiene todos los estilos
     top_canciones_por_estilo = []  
     for estilo in estilos:
-        cancion = Cancion.objects.filter(estilo=estilo).order_by('-ranking').first()  # La mejor canción del estilo
+        cancion = Cancion.objects.filter(estilo=estilo).order_by('ranking').first()  # La mejor canción del estilo
         if cancion:
             top_canciones_por_estilo.append((estilo, cancion))  # Guarda una tupla (estilo, cancion)
     
@@ -21,7 +21,7 @@ def index(request):
 ########### CANCIONES ################3
 # Visualizar la lista de canciones
 def lista_canciones(request):
-    canciones = Cancion.objects.all()
+    canciones = Cancion.objects.order_by('ranking').all()
     context = {'canciones': canciones}
     return render(request, 'lista_canciones.html', context)
 
@@ -57,7 +57,7 @@ def detalles_estilo(request, estilo_id):
 
 ############### INTERPRETES #############################3
 def lista_interpretes(request):
-    interpretes = Interprete.objects.all()
+    interpretes = Interprete.objects.order_by('nombre').all()
     context = {'interpretes': interpretes}
     return render(request, 'lista_interpretes.html', context)
 
