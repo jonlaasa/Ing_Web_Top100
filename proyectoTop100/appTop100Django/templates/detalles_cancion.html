@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
 
+<!-- Para mostrar los detalles de una Cancion-->
+
 {% block titulo %}Detalles de Canción{% endblock %}
 
 {% block contenido %}
 <h2>{{ cancion.titulo }} - Detalles</h2>
+
+<!-- De cada imagen mostraremos el titulo asi como el interprete-->
 
 {% if cancion.imagen %}
     <img src="{{ cancion.imagen.url }}" alt="Imagen de {{ cancion.titulo }}" style="max-width: 300px; height: auto;">
 {% else %}
     <p>No hay imagen disponible para esta canción.</p>
 {% endif %}
+
+
+<!-- Mostramos los detalles de la cancion-->
 
 <p><strong>Interprete(s):</strong>
     {% for interprete in cancion.intepretes.all %}

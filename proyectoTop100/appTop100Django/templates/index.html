@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 
+<!-- Nuestro indice, que hereda del base-->
+
+
 {% block titulo %}Top 100 Canciones{% endblock %}
 
 {% block contenido %}
 <h2>Top 100 Canciones por Estilo</h2>
+
+<!-- Por cada estilo mostramos la mejor cancion-->
+
 
 
 {% for estilo, cancion in top_canciones_por_estilo %}

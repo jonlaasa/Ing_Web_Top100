@@ -1,4 +1,6 @@
 {% extends 'base_listas.html' %}
+<!-- Para mostrar la lista de interpretes-->
+
 
 {% load static %}
 
@@ -18,6 +20,8 @@
 
 {% block contenido_principal %}
 <h2>Lista de Intérpretes</h2>
+<!-- Cada interprete lo mostramos a traves de un bucle-->
+
 <ul>
     {% for interprete in interpretes %}
         <li>

@@ -1,4 +1,6 @@
 {% extends 'base_listas.html' %}
+<!-- Para mostrar la lista de estilos-->
+
 
 {% load static %}
 
@@ -17,6 +19,9 @@
 
 {% block contenido_principal %}
 <h2>Lista de Estilos Musicales</h2>
+
+<!-- Cada estilo lo mostramos a traves de un bucle-->
+
 
 <ul>
     {% for estilo in estilos %}

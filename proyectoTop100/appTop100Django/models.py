@@ -1,5 +1,7 @@
 from django.db import models
 
+
+#Clase estilo con su nombre y descripcion
 class Estilo(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=300)
@@ -7,6 +9,9 @@ class Estilo(models.Model):
     def __str__(self):
         return self.nombre  
        
+
+
+#Clase interprete con su nombre.. integrantes, oyentes mensuales E IMAGEN
 class Interprete(models.Model):
     nombre = models.CharField(max_length=50)
     numero_integrantes = models.IntegerField(default=0)
@@ -17,6 +22,8 @@ class Interprete(models.Model):
     def __str__(self):
         return self.nombre  
     
+    
+    # Clase cancion con ranking IMAGEN... y dos foreign key asociadas al estilo e interprete de dicha csncion
 class Cancion(models.Model):
     titulo = models.CharField(max_length=50)
     duracion = models.IntegerField(default=0)
