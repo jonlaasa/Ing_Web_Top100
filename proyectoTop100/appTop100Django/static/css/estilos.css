@@ -1,13 +1,13 @@
-/* General Styles */
+/* ESTILO GENERAL */
 body {
     font-family: 'Poppins';
-    background-color: #ffffff; /* Fondo oscuro */
-    color: #e0e0e0; /* Texto claro para contraste */
+    background-color: #ffffff; 
+    color: #e0e0e0; 
     margin: 0;
     padding: 0;
 }
 
-/* Header Styles */
+/* ESTILO DEL HEADER */
 header {
     background-color: #6200ea;
     padding: 10px 20px;       
@@ -19,16 +19,16 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;         /* Permite que el contenido del header se acomode en varias líneas si es necesario */
+    flex-wrap: wrap;        
 }
 
-/* Ajustes para el contenedor del logo y el título */
+/* LOGO Y TITULO */
 .logo-titulo {                  
     display: flex;
     align-items: center;
-    margin-left: 0;          /* Elimina el margen fijo */
+    margin-left: 0;         
     height: 70px;
-    flex-shrink: 0;          /* Evita que este contenedor se reduzca demasiado en pantallas pequeñas */
+    flex-shrink: 0;          
 }
 
 .logo {
@@ -40,36 +40,15 @@ header {
     font-size: 1.9em;
     font-weight: bold;
     margin-left: 10px;
-    white-space: nowrap;     /* Evita que el título se divida en varias líneas */
+    white-space: nowrap;    
 }
 
-/* Centrado del menú de navegación */
+/* MENU DE NAVEGACION */
 header nav {
     display: flex;
     justify-content: center;
-    flex-grow: 1;            /* Ocupa el espacio restante en el header */
-    flex-wrap: wrap;         /* Permite que los elementos de navegación se acomoden en varias líneas */
-}
-
-.nav-titulos {
-    display: flex;
-    gap: 15px;               /* Espacio entre los enlaces del menú */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    color: #ffffff;
-    margin-left: auto;
-    flex-wrap: wrap;         /* Ajusta la lista para que se adapte en pantallas pequeñas */
-}
-
-.nav-titulos a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: italic;
-    font-size: 1.1em;
-    padding: 8px 15px;
-    border-radius: 20px;
-    transition: color 0.3s, background-color 0.3s;
+    flex-grow: 1;           
+    flex-wrap: wrap;        
 }
 
 header nav a:hover {
@@ -77,21 +56,21 @@ header nav a:hover {
     color: #e7d0d0;
 }
 
-/* Main Content Styles */
+/* CONTENIDO GENERAL */
 .contenido {
     width: 80%;
     max-width: 1000px;
-    margin: 20px auto; /* Centrar el contenido del index */
+    margin: 20px auto; 
     padding: 30px 20px;
     animation: fadeIn 0.7s ease-out;
-    background-color: #121212; /* Fondo oscuro para contraste */
+    background-color: #121212; 
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Title Styles */
+/* ESTILO DE TITULOS */
 h2, h3 {
-    color: #03dac5; /* Color acuamarina */
+    color: #03dac5; 
     border-bottom: 2px solid #03dac5;
     padding-bottom: 8px;
     margin-bottom: 15px;
@@ -106,23 +85,24 @@ h3 {
     font-size: 1.6em;
 }
 
-/* List Styles */
-/* Asegurar que las listas no ocupen todo el ancho */
-ul {
+
+/* ESTILO DE LISTAS  (Quitando la lista del header) */
+ul:not(.nav-titulos) {
     list-style-type: none;
     padding: 0;
-    max-width: 100%; /* Limitar el ancho máximo de las listas */
-    margin: 0 auto; /* Centrar las listas dentro de su contenedor */
+    max-width: 100%;
+    margin: 0 auto; 
 }
 
-ul li {
-    background-color: #1f1b24; /* Gris oscuro */
+
+ul:not(.nav-titulos) li {
+    background-color: #1f1b24; 
     margin-bottom: 10px;
     padding: 15px;
     border-radius: 8px;
     transition: transform 0.2s, box-shadow 0.2s;
-    max-width: 100%; /* Asegurarse de que no excedan el 100% de ancho */
-    box-sizing: border-box; /* Para incluir el padding y el borde en el cálculo del ancho */
+    max-width: 100%; 
+    box-sizing: border-box; 
 }
 
 ul li:hover {
@@ -130,18 +110,39 @@ ul li:hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
-ul li a {
-    color: #bb86fc; /* Color neón */
+ul:not(.nav-titulos) li a {
+    color: #bb86fc; 
     font-weight: bold;
     font-size: 1.2em;
     text-decoration: none;
+}
+.nav-titulos {
+    display: flex;
+    gap: 15px;               
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    margin-left: auto;
+    flex-wrap: wrap;        
+}
+
+.nav-titulos a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.1em;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: color 0.3s, background-color 0.3s;
 }
 
 ul li a:hover {
     color: #03dac5;
 }
 
-/* Image Styling */
+/* ESTILO DE IMAGENES */
 img {
     max-width: 100%;
     height: auto;
@@ -149,7 +150,7 @@ img {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Footer Styles */
+/* ESTILO DEL PIE DE PAGINA */
 footer {
     background-color: #6200ea;
     color: white;
@@ -165,21 +166,22 @@ footer p {
     color: #f5f5f5;
 }
 
-/* Animations */
+/* ANIMACION */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* ESTILO DE TEXTO */
 a {
-    color: #03dac5; /* Color brillante tipo acuamarina */
-    text-decoration: none; /* Eliminar subrayado por defecto */
-    transition: color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
-    font-weight: normal ; /* Hacer los enlaces más visibles */
-    font-size: 1.1em; /* Tamaño adecuado */
+    color: #03dac5; 
+    text-decoration: none; 
+    transition: color 0.3s ease, transform 0.2s ease; 
+    font-weight: normal ; 
+    font-size: 1.1em; 
 }
 
-/* Button Styles */
+/* ESTILO DE BOTONES */
 a.button {
     display: inline-block;
     padding: 10px 20px;
@@ -196,7 +198,7 @@ a.button:hover {
     transform: scale(1.05);
 }
 
-/* Banner Styles */
+/* ESTILO DE BANNERS */
 .banner-content {
     position: relative;
     width: 100%;
@@ -220,8 +222,8 @@ a.button:hover {
 }
 
 .banner-image:hover {
-    transform: scale(1.05);           /* Agranda la imagen ligeramente */
-    filter: brightness(0.9);          /* Oscurece la imagen ligeramente */
+    transform: scale(1.05);         
+    filter: brightness(0.9);         
 }
 
 .banner-overlay {
@@ -232,7 +234,7 @@ a.button:hover {
     text-align: center;
     color: white;
     border-radius: 8px;
-    max-width: 80%; /* Ajusta el ancho de la superposición si es necesario */
+    max-width: 80%; 
 }
 
 .banner-overlay h2 {
@@ -246,7 +248,7 @@ a.button:hover {
 }
 
 .banner-overlay .button {
-    background-color: #1db954; /* Verde estilo Spotify */
+    background-color: #1db954; 
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -256,56 +258,6 @@ a.button:hover {
 }
 
 .banner-overlay .button:hover {
-    background-color: #148f3e; /* Color de hover más oscuro */
+    background-color: #148f3e; 
 }
 
-/* Carrusel */
-.carousel {
-    position: relative;
-    max-width: 80%;
-    margin: 20px auto;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.carousel-inner {
-    display: flex;
-    width: 300%; /* Ajusta dependiendo de la cantidad de imágenes */
-}
-
-.carousel-item {
-    width: 33.33%; /* Ajusta según el número de imágenes */
-}
-
-.carousel img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-/* Controles de flechas */
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 2em;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-.carousel-control.prev {
-    left: 10px;
-}
-
-.carousel-control.next {
-    right: 10px;
-}
-
-.carousel-control:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}

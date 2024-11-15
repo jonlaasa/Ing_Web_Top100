@@ -12,7 +12,6 @@
 <body>
 
 <div class="wrapper">
-    <!-- Header -->
     <header>
         <div class="logo-titulo">
             <img class="logo" src="{% static 'images/Logo_Music.png' %}" alt="Logo de Música">
@@ -20,26 +19,23 @@
         </div>
         <nav>
         <ul class="nav-titulos">
-            <a href="{% url 'index' %}">Inicio</a>
-            <a href="{% url 'lista_canciones' %}">Canciones</a> 
-            <a href="{% url 'lista_estilos' %}">Estilos</a> 
-            <a href="{% url 'lista_interpretes' %}">Intérpretes</a> 
+            <li><a href="/appTop100Django/">Inicio</a></li>
+            <li><a href="/appTop100Django/canciones/">Canciones</a></li>
+            <li><a href="/appTop100Django/estilos/">Estilos</a></li>
+            <li><a href="/appTop100Django/interpretes/">Intérpretes</a></li>
         </ul>
         </nav>
     </header>
-
-    <!-- Main Content Area -->
+</div>
     <div class="contenido">
         {% block contenido %}
-        <!-- Contenido de cada página -->
+        <!-- Contenido de cada pagina -->
         {% endblock %}
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Top 100 de Música. Todos los derechos reservados.</p>
     </footer>
-</div>
 
 </body>
 </html>

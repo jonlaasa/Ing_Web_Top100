@@ -49,7 +49,7 @@ def lista_estilos(request):
 # Detalles de un estilo específico y sus canciones
 def detalles_estilo(request, estilo_id):
     estilo = get_object_or_404(Estilo, pk=estilo_id)
-    canciones = estilo.cancion_set.all()
+    canciones = estilo.cancion_set.all().order_by('ranking')
     context = {'estilo': estilo, 'canciones': canciones}
     return render(request, 'detalles_estilo.html', context)
 ############################################################
@@ -63,6 +63,6 @@ def lista_interpretes(request):
 
 def detalles_interprete(request, interprete_id):
     interprete = get_object_or_404(Interprete, pk=interprete_id)
-    canciones = interprete.cancion_set.all()
+    canciones = interprete.cancion_set.all().order_by('titulo')
     context = {'interprete': interprete, 'canciones': canciones}
     return render(request, 'detalles_interprete.html', context)
