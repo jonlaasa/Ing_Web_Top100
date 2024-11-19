@@ -261,3 +261,54 @@ a.button:hover {
     background-color: #148f3e; 
 }
 
+
+/* Carrusel */
+.carousel {
+    position: relative;
+    max-width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-inner {
+    display: flex;
+    width: 300%; /* Ajusta dependiendo de la cantidad de imágenes */
+}
+
+.carousel-item {
+    width: 33.33%; /* Ajusta según el número de imágenes */
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Controles de flechas */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2em;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
