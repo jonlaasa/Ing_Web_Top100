@@ -1,44 +1,45 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block titulo %}Top 100 Canciones{% endblock %}
+{% block titulo %}{% trans "Top 100 Canciones" %}{% endblock %}
 
 {% block contenido %}
-<h2>Bienvenidos a nuestro Top 100 de Música</h2>
+<h2>{% trans "Bienvenidos a nuestro Top 100 de Música" %}</h2>
 
 <!-- Carrusel de bienvenida en la página de inicio (index) -->
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <!-- Aquí puedes agregar tantas imágenes como quieras -->
         <div class="carousel-item active">
-            <img src="/media/inicio/duki.jpg" class="d-block w-100" alt="Bienvenida 1">
+            <img src="/media/inicio/duki.jpg" class="d-block w-100" alt="{% trans 'Bienvenida 1' %}">
         </div>
         <div class="carousel-item">
-            <img src="/media/inicio/juice.jpg" class="d-block w-100" alt="Bienvenida 2">
+            <img src="/media/inicio/juice.jpg" class="d-block w-100" alt="{% trans 'Bienvenida 2' %}">
         </div>
         <div class="carousel-item">
-            <img src="/media/inicio/la-pantera.png" class="d-block w-100" alt="Bienvenida 3">
+            <img src="/media/inicio/la-pantera.png" class="d-block w-100" alt="{% trans 'Bienvenida 3' %}">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <span class="visually-hidden">{% trans 'Anterior' %}</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <span class="visually-hidden">{% trans 'Siguiente' %}</span>
     </button>
 </div>
 
 <!-- Aquí continúa el contenido de la página de inicio -->
-<p>Explora las mejores canciones por estilo, los intérpretes más populares y mucho más.</p>
+<p>{% trans "Explora las mejores canciones por estilo, los intérpretes más populares y mucho más." %}</p>
 
 <!-- Las mejores canciones por estilo -->
 {% for estilo, cancion in top_canciones_por_estilo %}
-    <h3>Mejor canción de {{ estilo.nombre }}</h3> 
+    <h3>{% trans "Mejor canción de" %} {{ estilo.nombre }}</h3> 
     <ul>
         <li>
             <a href="{% url 'detalles_cancion' cancion.id %}">{{ cancion.titulo }}</a> 
-            - {{ cancion.interprete.nombre }} (Ranking: {{ cancion.ranking }})
+            - {{ cancion.interprete.nombre }} ({% trans 'Ranking' %}: {{ cancion.ranking }})
         </li>
     </ul>
 {% endfor %}

@@ -1,23 +1,26 @@
 {% extends 'base.html' %}
+
+{% load i18n %} <!-- Cargar soporte para traducciones -->
+
+
 <!-- Para mostrar los detalles de un Estilo-->
-{% block titulo %}Detalles de Estilo{% endblock %}
+{% block titulo %}{% trans "Detalles de Estilo" %}{% endblock %}
 
 {% block contenido %}
-<h2>Estilo: {{ estilo.nombre }}</h2>
-<h3>Mejores Canciones</h3>
+<h2>{% trans "Estilo:" %} {{ estilo.nombre }}</h2>
+<h3>{% trans "Mejores Canciones" %}</h3>
 
-<!-- De cada estilo  mostraremos las cnacionese-->
-
+<!-- De cada estilo mostramos las canciones-->
 <ul>
     {% for cancion in estilo.cancion_set.all %} 
         <li>
             <a href="{% url 'detalles_cancion' cancion.id %}">{{ cancion.titulo }}</a> 
-            - {{ cancion.intepretes.first.nombre }} (Ranking: {{ cancion.ranking }})
+            - {{ cancion.intepretes.first.nombre }} ({% trans "Ranking:" %} {{ cancion.ranking }})
         </li>
     {% empty %}
-        <li>No hay canciones disponibles para este estilo.</li>
+        <li>{% trans "No hay canciones disponibles para este estilo." %}</li>
     {% endfor %}
 </ul>
 
-<a href="{% url 'lista_estilos' %}">Volver a la lista de estilos</a>
+<a href="{% url 'lista_estilos' %}">{% trans "Volver a la lista de estilos" %}</a>
 {% endblock %}

@@ -1,0 +1,221 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-22 13:49+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\appTop100Django\templates\base.html:10
+msgid "Top 100 de Música"
+msgstr "Top 100 Music"
+
+#: .\appTop100Django\templates\base.html:28
+msgid "Inicio"
+msgstr "Home"
+
+#: .\appTop100Django\templates\base.html:29
+#: .\appTop100Django\templates\detalles_interprete.html:19
+msgid "Canciones"
+msgstr "Songs"
+
+#: .\appTop100Django\templates\base.html:30
+msgid "Estilos"
+msgstr "Styles"
+
+#: .\appTop100Django\templates\base.html:31
+msgid "Intérpretes"
+msgstr "Performers"
+
+#: .\appTop100Django\templates\base.html:58
+msgid "© 2024 Top 100 de Música. Todos los derechos reservados."
+msgstr "© 2024 Top 100 Music. All rights reserved."
+
+#: .\appTop100Django\templates\detalles_cancion.html:6
+msgid "Detalles de Canción"
+msgstr "Song Details"
+
+#: .\appTop100Django\templates\detalles_cancion.html:9
+msgid "{{ cancion.titulo }} - Detalles"
+msgstr "{{ cancion.titulo }} - Details"
+
+#: .\appTop100Django\templates\detalles_cancion.html:13
+msgid "Imagen de"
+msgstr "Image of"
+
+#: .\appTop100Django\templates\detalles_cancion.html:15
+msgid "No hay imagen disponible para esta canción."
+msgstr "No image available for this song."
+
+#: .\appTop100Django\templates\detalles_cancion.html:19
+msgid "Interprete(s):"
+msgstr "Performer(s):"
+
+#: .\appTop100Django\templates\detalles_cancion.html:24
+#: .\appTop100Django\templates\detalles_estilo.html:18
+#: .\appTop100Django\templates\detalles_interprete.html:26
+msgid "Ranking:"
+msgstr "Ranking:"
+
+#: .\appTop100Django\templates\detalles_cancion.html:25
+#: .\appTop100Django\templates\detalles_estilo.html:10
+msgid "Estilo:"
+msgstr "Style:"
+
+#: .\appTop100Django\templates\detalles_cancion.html:26
+msgid "Descripción:"
+msgstr "Description:"
+
+#: .\appTop100Django\templates\detalles_cancion.html:28
+msgid "Volver a la lista de canciones"
+msgstr "Back to song list"
+
+#: .\appTop100Django\templates\detalles_estilo.html:7
+msgid "Detalles de Estilo"
+msgstr "Style Details"
+
+#: .\appTop100Django\templates\detalles_estilo.html:11
+msgid "Mejores Canciones"
+msgstr "Top Songs"
+
+#: .\appTop100Django\templates\detalles_estilo.html:21
+msgid "No hay canciones disponibles para este estilo."
+msgstr "No songs available for this style."
+
+#: .\appTop100Django\templates\detalles_estilo.html:25
+msgid "Volver a la lista de estilos"
+msgstr "Back to style list"
+
+#: .\appTop100Django\templates\detalles_interprete.html:8
+msgid "Detalles de Intérprete"
+msgstr "Performer Details"
+
+#: .\appTop100Django\templates\detalles_interprete.html:11
+msgid "Intérprete:"
+msgstr "Performer:"
+
+#: .\appTop100Django\templates\detalles_interprete.html:16
+msgid "No hay imagen disponible para este intérprete."
+msgstr "No image available for this performer."
+
+#: .\appTop100Django\templates\detalles_interprete.html:29
+msgid "No hay canciones disponibles para este intérprete."
+msgstr "No songs available for this performer."
+
+#: .\appTop100Django\templates\detalles_interprete.html:33
+msgid "Volver a la lista de intérpretes"
+msgstr "Back to performer list"
+
+#: .\appTop100Django\templates\index.html:4
+msgid "Top 100 Canciones"
+msgstr "Top 100 Songs"
+
+#: .\appTop100Django\templates\index.html:7
+msgid "Bienvenidos a nuestro Top 100 de Música"
+msgstr "Welcome to our Top 100 Music"
+
+#: .\appTop100Django\templates\index.html:14
+msgid "Bienvenida 1"
+msgstr "Welcome 1"
+
+#: .\appTop100Django\templates\index.html:17
+msgid "Bienvenida 2"
+msgstr "Welcome 2"
+
+#: .\appTop100Django\templates\index.html:20
+msgid "Bienvenida 3"
+msgstr "Welcome 3"
+
+#: .\appTop100Django\templates\index.html:25
+msgid "Anterior"
+msgstr "Previous"
+
+#: .\appTop100Django\templates\index.html:29
+msgid "Siguiente"
+msgstr "Next"
+
+#: .\appTop100Django\templates\index.html:34
+msgid ""
+"Explora las mejores canciones por estilo, los intérpretes más populares y "
+"mucho más."
+msgstr "Explore the best songs by style, the most popular performers, and much more."
+
+#: .\appTop100Django\templates\index.html:38
+msgid "Mejor canción de"
+msgstr "Best song of"
+
+#: .\appTop100Django\templates\index.html:42
+msgid "Ranking"
+msgstr "Ranking"
+
+#: .\appTop100Django\templates\lista_canciones.html:8
+#: .\appTop100Django\templates\lista_canciones.html:24
+msgid "Lista de Canciones"
+msgstr "Song List"
+
+#: .\appTop100Django\templates\lista_canciones.html:12
+msgid "Banner de Canciones"
+msgstr "Song Banner"
+
+#: .\appTop100Django\templates\lista_canciones.html:14
+msgid "Encuentra tus Canciones Favoritas"
+msgstr "Find Your Favorite Songs"
+
+#: .\appTop100Django\templates\lista_canciones.html:15
+msgid "Explora las mejores Canciones de cualquier género"
+msgstr "Explore the best songs of any genre"
+
+#: .\appTop100Django\templates\lista_canciones.html:16
+#: .\appTop100Django\templates\lista_estilos.html:15
+#: .\appTop100Django\templates\lista_interpretes.html:15
+msgid "Descubre más"
+msgstr "Discover more"
+
+#: .\appTop100Django\templates\lista_canciones.html:31
+msgid "Ranking Global"
+msgstr "Global Ranking"
+
+#: .\appTop100Django\templates\lista_estilos.html:7
+#: .\appTop100Django\templates\lista_estilos.html:21
+msgid "Lista de Estilos Musicales"
+msgstr "Music Style List"
+
+#: .\appTop100Django\templates\lista_estilos.html:11
+msgid "Banner de Estilos Musicales"
+msgstr "Music Style Banner"
+
+#: .\appTop100Django\templates\lista_estilos.html:13
+msgid "Encuentra tu Género favorito"
+msgstr "Find Your Favorite Genre"
+
+#: .\appTop100Django\templates\lista_estilos.html:14
+msgid "Explora las canciones de los mejores géneros"
+msgstr "Explore songs from the best genres"
+
+#: .\appTop100Django\templates\lista_interpretes.html:7
+#: .\appTop100Django\templates\lista_interpretes.html:21
+msgid "Lista de Intérpretes"
+msgstr "Performer List"
+
+#: .\appTop100Django\templates\lista_interpretes.html:11
+msgid "Banner de Intérpretes"
+msgstr "Performer Banner"
+
+#: .\appTop100Django\templates\lista_interpretes.html:13
+msgid "Encuentra tu Intérprete favorito"
+msgstr "Find Your Favorite Performer"
+
+#: .\appTop100Django\templates\lista_interpretes.html:14
+msgid "Explora las canciones de tus artistas favoritos"
+msgstr "Explore songs from your favorite artists"

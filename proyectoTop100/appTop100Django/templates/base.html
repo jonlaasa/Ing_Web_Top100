@@ -1,14 +1,14 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="es">
 <!-- Principal, de la que hereda nuestra otra base-->
 <head>
-<!-- Referenciamos al codigo static asi como css y imagenes para iconos..-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <title>{% block titulo %}Top 100 de Música{% endblock %}</title>
-        
+    <title>{% block titulo %}{% trans "Top 100 de Música" %}{% endblock %}</title>
+    
     <!-- Enlace a los archivos de Bootstrap para el carrusel -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,28 +21,43 @@
     <header>
         <div class="logo-titulo">
             <img class="logo" src="{% static 'images/Logo_Music.png' %}" alt="Logo de Música">
-            <h1 class="titulo">Top 100 de Musica</h1>
+            <h1 class="titulo">Top 100 de Música </h1>
         </div>
         <nav>
-        <ul class="nav-titulos">
-            <li><a href="/appTop100Django/">Inicio</a></li>
-            <li><a href="/appTop100Django/canciones/">Canciones</a></li>
-            <li><a href="/appTop100Django/estilos/">Estilos</a></li>
-            <li><a href="/appTop100Django/interpretes/">Intérpretes</a></li>
-        </ul>
+            <ul class="nav-titulos">
+                <li><a href="/appTop100Django/">{% trans "Inicio" %}</a></li>
+                <li><a href="/appTop100Django/canciones/">{% trans "Canciones" %}</a></li>
+                <li><a href="/appTop100Django/estilos/">{% trans "Estilos" %}</a></li>
+                <li><a href="/appTop100Django/interpretes/">{% trans "Intérpretes" %}</a></li>
+                <!-- Selector de idioma al final del menú -->
+                <li class="language-selector">
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <select name="language" onchange="this.form.submit()">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% for lang_code, lang_name in LANGUAGES %}
+                                <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                                    {{ lang_name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </li>
+            </ul>
         </nav>
     </header>
 </div>
     <div class="contenido">
         {% block contenido %}
-        <!-- Contenido de cada pagina -->
+        <!-- Contenido de cada página -->
         {% endblock %}
     </div>
 
     <footer>
-        <p>&copy; 2024 Top 100 de Música. Todos los derechos reservados.</p>
+        <p>{% trans "© 2024 Top 100 de Música. Todos los derechos reservados." %}</p>
     </footer>
-<!-- Archivos JS de Bootstrap (para carrusel y otras interacciones) -->
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 

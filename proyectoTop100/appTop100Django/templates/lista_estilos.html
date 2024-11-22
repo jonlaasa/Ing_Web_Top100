@@ -1,28 +1,26 @@
 {% extends 'base_listas.html' %}
 <!-- Para mostrar la lista de estilos-->
 
-
+{% load i18n %} <!-- Cargar el filtro para traducciones -->
 {% load static %}
 
-{% block titulo %}Lista de Estilos Musicales{% endblock %}
+{% block titulo %}{% trans "Lista de Estilos Musicales" %}{% endblock %}
 
 {% block banner %}
 <div class="banner-content">
-<img src="{% static 'images/estilos_banner.jpg' %}" alt="Banner de Estilos Musicales" class="banner-image">
-        <div class="banner-overlay">
-            <h2>Encuentra tu Género favorito</h2>
-            <p>Explora las canciones de los mejores géneros</p>
-            <a href="https://legismusic.com/es/generos-musicales/" class="button" target="_blank">Descubre más</a>
-        </div>
+    <img src="{% static 'images/estilos_banner.jpg' %}" alt="{% trans 'Banner de Estilos Musicales' %}" class="banner-image">
+    <div class="banner-overlay">
+        <h2>{% trans "Encuentra tu Género favorito" %}</h2>
+        <p>{% trans "Explora las canciones de los mejores géneros" %}</p>
+        <a href="https://legismusic.com/es/generos-musicales/" class="button" target="_blank">{% trans "Descubre más" %}</a>
+    </div>
 </div>
 {% endblock %}
 
 {% block contenido_principal %}
-<h2>Lista de Estilos Musicales</h2>
+<h2>{% trans "Lista de Estilos Musicales" %}</h2>
 
-<!-- Cada estilo lo mostramos a traves de un bucle-->
-
-
+<!-- Cada estilo lo mostramos a través de un bucle-->
 <ul>
     {% for estilo in estilos %}
         <li>

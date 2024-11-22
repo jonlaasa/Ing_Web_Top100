@@ -312,3 +312,42 @@ a.button:hover {
 .carousel-control:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+/* Contenedor del selector de idiomas */
+.language-selector {
+    display: inline-flex; /* Cambia a inline-flex para alinearlo en la misma línea */
+    align-items: center; /* Asegura que el selector esté alineado verticalmente con los elementos del menú */
+    margin-left: auto; /* Empuja el selector hacia la derecha */
+    padding: 0 10px; /* Ajusta el espacio lateral */
+}
+
+/* El formulario para que se ajuste al diseño */
+.language-selector form {
+    margin: 0;
+}
+
+/* El dropdown */
+.language-selector select {
+    font-family: 'Poppins', sans-serif; /* Usa la fuente que ya tienes configurada */
+    font-size: 14px; /* Tamaño de texto */
+    padding: 5px 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco */
+    color: #333; /* Texto oscuro */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: all 0.3s ease; /* Animación de transición */
+}
+
+/* Hover (cuando el usuario pasa el cursor) */
+.language-selector select:hover {
+    border-color: #007bff; /* Cambia el borde al color primario */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efecto de sombra */
+}
+
+/* Cuando el select está enfocado */
+.language-selector select:focus {
+    outline: none; /* Quita el contorno predeterminado */
+    border-color: #007bff; /* Borde azul */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.75); /* Sombra más intensa */
+}

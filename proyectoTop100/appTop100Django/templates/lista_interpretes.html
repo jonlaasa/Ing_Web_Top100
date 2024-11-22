@@ -1,27 +1,26 @@
 {% extends 'base_listas.html' %}
-<!-- Para mostrar la lista de interpretes-->
+<!-- Para mostrar la lista de intérpretes-->
 
-
+{% load i18n %} <!-- Cargar soporte para traducciones -->
 {% load static %}
 
-{% block titulo %}Lista de Intérpretes{% endblock %}
-
+{% block titulo %}{% trans "Lista de Intérpretes" %}{% endblock %}
 
 {% block banner %}
 <div class="banner-content">
-    <img src="{% static 'images/interpretes_banner.jpg' %}" alt="Banner de Interpretes" class="banner-image">
-        <div class="banner-overlay">
-            <h2>Encuentra tu Interprete favorito</h2>
-            <p>Explora los mejores Interpretes y sus canciones</p>
-            <a href="https://es.wikipedia.org/wiki/Anexo:Artistas_m%C3%A1s_escuchados_en_Spotify" class="button" target="_blank">Descubre más</a>
-        </div>
+    <img src="{% static 'images/interpretes_banner.jpg' %}" alt="{% trans 'Banner de Intérpretes' %}" class="banner-image">
+    <div class="banner-overlay">
+        <h2>{% trans "Encuentra tu Intérprete favorito" %}</h2>
+        <p>{% trans "Explora los mejores intérpretes y sus canciones" %}</p>
+        <a href="https://es.wikipedia.org/wiki/Anexo:Artistas_m%C3%A1s_escuchados_en_Spotify" class="button" target="_blank">{% trans "Descubre más" %}</a>
+    </div>
 </div>
 {% endblock %}
 
 {% block contenido_principal %}
-<h2>Lista de Intérpretes</h2>
-<!-- Cada interprete lo mostramos a traves de un bucle-->
+<h2>{% trans "Lista de Intérpretes" %}</h2>
 
+<!-- Cada intérprete lo mostramos a través de un bucle-->
 <ul>
     {% for interprete in interpretes %}
         <li>
