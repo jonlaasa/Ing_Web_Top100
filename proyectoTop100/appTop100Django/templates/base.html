@@ -14,6 +14,13 @@
 
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <link rel="icon" href="{% static 'images/icon_music.ico' %}" type="image/x-icon">
+    {% block javascript %}
+    {% load static %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/effects.js' %}"></script>
+    <script src="{% static 'js/jquery.qtip-1.0.0-rc3.min.js' %}"></script>
+    <script src="{% static 'js/ajax.js' %}"></script>
+    {% endblock %}
 </head>
 <body>
 <!-- insertamos logo y navegador-->

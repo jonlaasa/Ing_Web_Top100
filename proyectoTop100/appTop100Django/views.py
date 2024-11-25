@@ -66,3 +66,11 @@ def detalles_interprete(request, interprete_id):
     canciones = interprete.cancion_set.all().order_by('titulo')
     context = {'interprete': interprete, 'canciones': canciones}
     return render(request, 'detalles_interprete.html', context)
+
+################ AJAX #################################
+
+# Devuelve la imagen de una cancion
+def ajax(request, cancion_id):
+    cancion = get_object_or_404(Cancion, pk=cancion_id)
+    context = { 'cancion': cancion }
+    return render(request, 'ajax.html', context)

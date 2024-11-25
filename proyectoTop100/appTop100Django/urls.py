@@ -13,4 +13,5 @@ urlpatterns = [
     path('estilos/<int:estilo_id>/', views.detalles_estilo, name='detalles_estilo'),
     path('interpretes/', views.lista_interpretes, name='lista_interpretes'),
     path('interpretes/<int:interprete_id>/', views.detalles_interprete, name='detalles_interprete'),
+    path('cancionAjax/<int:cancion_id>/', views.ajax, name='ajax'),
 ]

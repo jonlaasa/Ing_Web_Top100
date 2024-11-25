@@ -6,7 +6,7 @@
 {% block titulo %}{% trans "Detalles de Canción" %}{% endblock %}
 
 {% block contenido %}
-<h2>{% trans "{{ cancion.titulo }} - Detalles" %}</h2>
+<h2 class="cancion-title">{{ cancion.titulo }}</h2>
 
 <!-- De cada imagen mostraremos el título así como el intérprete-->
 {% if cancion.imagen %}

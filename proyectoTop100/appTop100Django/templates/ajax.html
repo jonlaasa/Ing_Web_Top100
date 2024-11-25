@@ -1,0 +1,10 @@
+{% if cancion %}
+    {% if cancion.image %}
+        {% load static %}
+        <img alt="{{ cancion.titulo }}" class="cancion-imagen" src="{% static cancion.imagen.url %}" />
+    {% else %}
+        <p class="cancion-meta">Esta canción no tiene imagen.</p>
+    {% endif %}
+{% else %}
+    <p class="cancion-meta">No existe esta canción.</p>
+{% endif %}
