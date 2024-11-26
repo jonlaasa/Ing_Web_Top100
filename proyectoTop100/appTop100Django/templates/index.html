@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
+{% block javascript %}
+    {% load static %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/effects.js' %}"></script>
+    <script src="{% static 'js/jquery.qtip-1.0.0-rc3.min.js' %}"></script>
+    <script src="{% static 'js/ajax.js' %}"></script>
+{% endblock %}
+
 {% block titulo %}{% trans "Top 100 Canciones" %}{% endblock %}
 
 {% block contenido %}
@@ -33,6 +41,7 @@
 <p>{% trans "Explora las mejores canciones por estilo, los intérpretes más populares y mucho más." %}</p>
 
 <!-- Las mejores canciones por estilo -->
+<section class="topcanciones">
 {% for estilo, cancion in top_canciones_por_estilo %}
     <h3>{% trans "Mejor canción de" %} {{ estilo.nombre }}</h3> 
     <ul>
@@ -42,5 +51,6 @@
         </li>
     </ul>
 {% endfor %}
+</section>
 
 {% endblock %}

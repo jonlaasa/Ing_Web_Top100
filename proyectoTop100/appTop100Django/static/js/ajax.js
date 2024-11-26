@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-  $('section.post > header.post-header > h2.post-title > a').each(function () {
+  $('section.topcanciones a').each(function () {
     var href = $(this).attr("href");
-    href = href.replace("post", "postAjax");
+    href = href.replace("canciones", "cancionAjax");
     $(this).qtip({
        content: {
           url: href,

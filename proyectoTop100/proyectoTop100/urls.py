@@ -12,7 +12,7 @@ urlpatterns = [
 
 # Aplica i18n_patterns para las rutas que se deben adaptar al idioma
 urlpatterns += i18n_patterns(
-    path('appTop100Django/', include('appTop100Django.urls')),  # Esto será accesible con el idioma
+    path('', include('appTop100Django.urls')),  # Esto será accesible con el idioma
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

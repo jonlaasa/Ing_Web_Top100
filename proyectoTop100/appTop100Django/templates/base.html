@@ -14,13 +14,10 @@
 
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <link rel="icon" href="{% static 'images/icon_music.ico' %}" type="image/x-icon">
+
     {% block javascript %}
-    {% load static %}
-    <script src="{% static 'js/jquery.js' %}"></script>
-    <script src="{% static 'js/effects.js' %}"></script>
-    <script src="{% static 'js/jquery.qtip-1.0.0-rc3.min.js' %}"></script>
-    <script src="{% static 'js/ajax.js' %}"></script>
     {% endblock %}
+    
 </head>
 <body>
 <!-- insertamos logo y navegador-->
@@ -32,10 +29,10 @@
         </div>
         <nav>
             <ul class="nav-titulos">
-                <li><a href="/appTop100Django/">{% trans "Inicio" %}</a></li>
-                <li><a href="/appTop100Django/canciones/">{% trans "Canciones" %}</a></li>
-                <li><a href="/appTop100Django/estilos/">{% trans "Estilos" %}</a></li>
-                <li><a href="/appTop100Django/interpretes/">{% trans "Intérpretes" %}</a></li>
+                <li><a href="{% url 'index' %}">{% trans "Inicio" %}</a></li> 
+                <li><a href="{% url 'lista_canciones' %}">{% trans "Canciones" %}</a></li>
+                <li><a href="{% url 'lista_estilos' %}">{% trans "Estilos" %}</a></li>
+                <li><a href="{% url 'lista_interpretes' %}">{% trans "Intérpretes" %}</a></li>
                 <!-- Selector de idioma al final del menú -->
                 <li class="language-selector">
                     <form action="{% url 'set_language' %}" method="post">
