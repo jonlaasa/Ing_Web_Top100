@@ -85,6 +85,17 @@ h3 {
     font-size: 1.6em;
 }
 
+h5 {
+    color: #84f4e8; /* Letras en color brillante */
+    text-shadow: 
+        -3px -3px 0 black,
+        3px -3px 0 black,
+        -3px 3px 0 black,
+        3px 3px 0 black;
+    font-weight: bold;
+    font-size: 1.0em;
+}
+
 
 /* ESTILO DE LISTAS  (Quitando la lista del header) */
 ul:not(.nav-titulos) {

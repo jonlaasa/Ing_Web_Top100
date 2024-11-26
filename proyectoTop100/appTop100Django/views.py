@@ -8,12 +8,13 @@ def index(request):
     estilos = Estilo.objects.all()  # Obtiene todos los estilos
     top_canciones_por_estilo = []  
     for estilo in estilos:
-        cancion = Cancion.objects.filter(estilo=estilo).order_by('ranking').first()  # La mejor canción del estilo
+        # Obtiene la mejor canción del estilo según el ranking
+        cancion = Cancion.objects.filter(estilo=estilo).order_by('ranking').first()
         if cancion:
-            top_canciones_por_estilo.append((estilo, cancion))  # Guarda una tupla (estilo, cancion)
+            top_canciones_por_estilo.append((estilo, cancion))
     
     context = {
-        'top_canciones_por_estilo': top_canciones_por_estilo,  # Cambiado el contexto
+        'top_canciones_por_estilo': top_canciones_por_estilo,  # Envía (estilo, canción) al contexto
     }
     return render(request, 'index.html', context)
 
