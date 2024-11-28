@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-8#81hnr!8_0)!(0ub(dvyyou6#y)x*ztkzb6$@@6479fqf-v@q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
 
 
 # Application definition
@@ -138,3 +139,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+## Adittional Security Measures
+X_FRAME_OPTIONS = 'DENY'
+
+#SECURE_SSL_REDIRECT = True ## To allow HTTPS
