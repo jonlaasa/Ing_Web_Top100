@@ -11,7 +11,7 @@
 <h2>{% trans "Intérprete:" %} {{ interprete.nombre }}</h2>
 
 {% if interprete.imagen %}
-    <img src="{{ interprete.imagen.url }}" alt="{{ interprete.nombre }}" style="max-width: 300px; height: auto;">
+    <img src="{{ interprete.imagen.url }}" alt="{{ interprete.nombre }}" class = 'cancion-imagen'>
 {% else %}
     <p>{% trans "No hay imagen disponible para este intérprete." %}</p>
 {% endif %}

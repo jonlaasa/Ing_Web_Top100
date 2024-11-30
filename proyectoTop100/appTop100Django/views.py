@@ -1,9 +1,8 @@
 from .models import Estilo, Interprete, Cancion
 from django.http import HttpResponse
-
 from django.shortcuts import get_object_or_404, render
-from .models import Estilo, Interprete, Cancion
 
+# Página principal
 def index(request):
     estilos = Estilo.objects.all()  # Obtiene todos los estilos
     top_canciones_por_estilo = []  
@@ -19,7 +18,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-########### CANCIONES ################3
+########### CANCIONES ################
 # Visualizar la lista de canciones
 def lista_canciones(request):
     canciones = Cancion.objects.order_by('ranking').all()
@@ -40,7 +39,7 @@ def detalles_cancion(request, cancion_id):
 #########################################################
 
 
-########### ESTILOS #########################################
+########### ESTILOS ######################################
 # Visualizar la lista de estilos musicales
 def lista_estilos(request):
     estilos = Estilo.objects.all()
@@ -56,7 +55,7 @@ def detalles_estilo(request, estilo_id):
 ############################################################
 
 
-############### INTERPRETES #############################3
+############### INTERPRETES ##############################
 def lista_interpretes(request):
     interpretes = Interprete.objects.order_by('nombre').all()
     context = {'interpretes': interpretes}
@@ -68,9 +67,8 @@ def detalles_interprete(request, interprete_id):
     context = {'interprete': interprete, 'canciones': canciones}
     return render(request, 'detalles_interprete.html', context)
 
-################ AJAX #################################
-
-# Devuelve la imagen de una cancion
+################ AJAX #####################################
+# Devuelve la imagen de una canción
 def ajax(request, cancion_id):
     cancion = get_object_or_404(Cancion, pk=cancion_id)
     context = { 'cancion': cancion }

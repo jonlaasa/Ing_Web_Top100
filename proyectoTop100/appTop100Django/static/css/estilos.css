@@ -362,3 +362,9 @@ a.button:hover {
     border-color: #007bff; /* Borde azul */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.75); /* Sombra más intensa */
 }
+
+.cancion-imagen {
+    max-width: 300px;
+    height: auto;
+}
+
