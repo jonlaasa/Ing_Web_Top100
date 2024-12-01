@@ -35,3 +35,12 @@ class Cancion(models.Model):
     imagen = models.ImageField(upload_to='canciones/', blank=True, null=True)  
     def __str__(self):
         return self.titulo 
+
+# Nueva clase para manejar los votos de las canciones
+class Voto(models.Model):
+    cancion = models.OneToOneField(Cancion, on_delete=models.CASCADE, related_name='votos')  # Relación uno a uno con Canción
+    numero_votos = models.IntegerField(default=0)  # Contador de votos
+
+    def __str__(self):
+        return f"Votos para {self.cancion.titulo}: {self.numero_votos}"
+

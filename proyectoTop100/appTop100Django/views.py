@@ -1,6 +1,9 @@
-from .models import Estilo, Interprete, Cancion
+from .models import Estilo, Interprete, Cancion,Voto
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render,redirect
+from django.contrib import messages
+
+
 
 # Página principal
 def index(request):
@@ -24,6 +27,11 @@ def lista_canciones(request):
     canciones = Cancion.objects.order_by('ranking').all()
     context = {'canciones': canciones}
     return render(request, 'lista_canciones.html', context)
+
+def formulario(request):
+    canciones = Cancion.objects.all()
+    context = {'canciones': canciones}
+    return render(request, 'formulario.html', context)
 
 # Detalles de una canción
 def detalles_cancion(request, cancion_id):
@@ -73,3 +81,33 @@ def ajax(request, cancion_id):
     cancion = get_object_or_404(Cancion, pk=cancion_id)
     context = { 'cancion': cancion }
     return render(request, 'ajax.html', context)
+
+####### REGISTRAR VOTOS FORMULARIO ################
+# views.py
+
+
+
+def registrar_votos(request):
+    if request.method == 'GET':
+        # Obtener la lista de canciones seleccionadas
+        canciones_seleccionadas = request.GET.getlist('canciones')
+
+        for cancion_id in canciones_seleccionadas:
+            try:
+                # Buscar la canción por ID
+                cancion = Cancion.objects.get(id=cancion_id)
+                # Buscar si ya existe un registro de votos para esta canción
+                voto, created = Voto.objects.get_or_create(cancion=cancion)
+                
+                # Si ya existe un voto, incrementamos su contador
+                voto.numero_votos += 1
+                voto.save()
+            except Cancion.DoesNotExist:
+                continue  # Si no existe la canción, la ignoramos
+
+        # Redirigir al index con un mensaje de éxito
+        messages.success(request, "Voto registrado correctamente")
+        return redirect('index')  # Cambiar a la vista que maneja tu index
+    else:
+        # Si no es un GET, redirigir al formulario
+        return redirect('formulario')  # O a la URL que corresponda para el formulario

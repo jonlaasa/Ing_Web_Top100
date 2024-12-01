@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block javascript %}
+    {% load static %}
+    <script src="{% static 'js/validar.js' %}"></script>
+{% endblock %}
+
+{% block titulo %}{% trans "Formulario de Canciones" %}{% endblock %}
+
+{% block contenido %}
+<h2>{% trans "Formulario para votar cancion" %}</h2>
+
+<form id="formularioCanciones" method="GET" action= "{% url 'registrar_votos' %}" onreset="borrarWarn()" onsubmit="return validarForm()">
+    <p>{% trans "Selecciona la cancion que quieres votar" %}</p>
+    
+    <fieldset>
+        <legend>{% trans "Canciones disponibles" %}</legend>
+        <label for="canciones">{% trans "Elige:" %}</label><br>
+        <select id="canciones" name="canciones" size="10" multiple>
+            {% for cancion in canciones %}
+                <option value="{{ cancion.id }}">{{ cancion.titulo }} - {{ cancion.interprete.nombre }} ({% trans 'Ranking' %}: {{ cancion.ranking }})</option>
+            {% endfor %}
+        </select>
+    </fieldset>
+
+    <p>
+        <input type="submit" value="{% trans 'Enviar' %}" />
+        <input type="reset" value="{% trans 'Borrar' %}" />
+    </p>
+</form>
+
+{% endblock %}
