@@ -10,13 +10,14 @@
 
 <!-- De cada imagen mostraremos el título así como el intérprete-->
 {% if cancion.imagen %}
-    <img src="{{ cancion.imagen.url }}" alt="{% trans 'Imagen de' %} {{ cancion.titulo }}" class="cancion-imagen">
+    <img src="{{ cancion.imagen.url }}" class="detalle-cancion" alt="{% trans 'Imagen de' %} {{ cancion.titulo }}">
 {% else %}
     <p>{% trans 'No hay imagen disponible para esta canción.' %}</p>
 {% endif %}
 
 <!-- Mostramos los detalles de la canción-->
-<p><strong>{% trans 'Interprete(s):' %}</strong>
+<br>
+<br><p><strong>{% trans 'Interprete(s):' %}</strong>
     {% for interprete in cancion.intepretes.all %}
     <a href="{% url 'detalles_interprete' interprete.id %}">{{ interprete.nombre }}</a>{% if not forloop.last %}, {% endif %}    {% endfor %}
 </p>

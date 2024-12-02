@@ -153,14 +153,6 @@ ul li a:hover {
     color: #03dac5;
 }
 
-/* ESTILO DE IMAGENES */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
 /* ESTILO DEL PIE DE PAGINA */
 footer {
     background-color: #6200ea;
@@ -272,56 +264,131 @@ a.button:hover {
     background-color: #148f3e; 
 }
 
+/* ESTILO DE IMAGENES */
 
-/* Carrusel */
+/* Estilo general para imágenes */
+img {
+    max-width: 100%; /* Se adapta al contenedor sin superar su tamaño */
+}
+
+/* Imágenes en vistas de detalles */
+.detalle-cancion {
+    width: 200px; /* Fija el ancho */
+    height: 200px; /* Fija el alto */
+    object-fit: cover; /* Recorta la imagen */
+    display: block; /* Renderiza como bloque */
+}
+
+.detalle-interprete {
+    width: 350px; /* Fija el ancho */
+    height: 350px; /* Fija el alto */
+    object-fit: cover; /* Recorta la imagen */
+    display: block; /* Renderiza como bloque */
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+/* Imágenes en secciones ajax */
+.ajax-image {
+    width: 150px; 
+    height: 150px; 
+    object-fit: cover; 
+}
+
+/* ESTILO CARRUSEL */
+/* Estilo general del carrusel */
 .carousel {
     position: relative;
-    max-width: 80%;
-    margin: 20px auto;
+    max-width: 90%; 
+    margin: 40px auto; 
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 15px; 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
+    background-color: #222; 
 }
 
+/* Imágenes del carrusel */
+.carousel .topcanciones-img {
+    width: 600px; 
+    height: 450px; 
+    object-fit: cover; /* Ajuste de la imagen */
+    transition: transform 0.3s ease-in-out; 
+}
+
+.carousel .topcanciones-img:hover {
+    transform: scale(1.05); /
+}
+
+/* Contenedor interno del carrusel */
 .carousel-inner {
-    display: flex;
-    width: 300%; /* Ajusta dependiendo de la cantidad de imágenes */
-}
-
-.carousel-item {
-    width: 33.33%; /* Ajusta según el número de imágenes */
-}
-
-.carousel img {
-    width: 100%;
+    display: flex; 
+    align-items: center; 
     height: auto;
-    border-radius: 10px;
 }
 
-/* Controles de flechas */
-.carousel-control {
+/* Captions (textos dentro del carrusel) */
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    color: white; /* Texto claro */
+    padding: 10px 20px;
+    border-radius: 10px; /* Bordes suaves */
+    font-family: 'Arial', sans-serif; /* Fuente profesional */
+    font-size: 1.2rem;
+    line-height: 1.5;
+    width: 80%; /* Ajusta el ancho del caption */
+    z-index: 10;
+}
+
+/* Títulos del caption */
+.carousel-caption h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Controles del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    font-size: 2em;
-    padding: 10px;
-    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 
-.carousel-control.prev {
-    left: 10px;
-}
-
-.carousel-control.next {
-    right: 10px;
-}
-
-.carousel-control:hover {
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Flechas dentro de los botones */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Posición de las flechas */
+.carousel-control-prev {
+    left: 15px;
+}
+
+.carousel-control-next {
+    right: 15px;
 }
 
 /* Contenedor del selector de idiomas */
@@ -361,9 +428,4 @@ a.button:hover {
     outline: none; /* Quita el contorno predeterminado */
     border-color: #007bff; /* Borde azul */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.75); /* Sombra más intensa */
-}
-
-.cancion-imagen {
-    max-width: 300px;
-    height: auto;
 }

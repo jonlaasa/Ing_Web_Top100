@@ -1,6 +1,6 @@
 {% if cancion %}
     {% if cancion.imagen %}
-    <img src="{{ cancion.imagen.url }}" alt="{{ cancion.titulo }}">
+    <img src="{{ cancion.imagen.url }}" class= "ajax-image" alt="{{ cancion.titulo }}">
     {% else %}
     <p class="cancion-meta">Esta canción no tiene imagen.</p>
     {% endif %}
