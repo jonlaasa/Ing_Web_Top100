@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.timezone import now
 
 #Clase estilo con su nombre y descripcion
 class Estilo(models.Model):
@@ -38,9 +38,10 @@ class Cancion(models.Model):
 
 # Nueva clase para manejar los votos de las canciones
 class Voto(models.Model):
-    cancion = models.OneToOneField(Cancion, on_delete=models.CASCADE, related_name='votos')  # Relación uno a uno con Canción
-    numero_votos = models.IntegerField(default=0)  # Contador de votos
+    cancion = models.ForeignKey(Cancion, on_delete=models.CASCADE, related_name='votos') # Relación uno a muchos
+    valor = models.IntegerField(default=1)  
+    fecha = models.DateField(default=now)
 
     def __str__(self):
-        return f"Votos para {self.cancion.titulo}: {self.numero_votos}"
+        return f"Voto para {self.cancion.titulo}: Fecha: {self.fecha}"
 

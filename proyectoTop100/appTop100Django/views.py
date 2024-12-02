@@ -2,8 +2,7 @@ from .models import Estilo, Interprete, Cancion,Voto
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render,redirect
 from django.contrib import messages
-
-
+from django.utils.timezone import now
 
 # Página principal
 def index(request):
@@ -83,9 +82,6 @@ def ajax(request, cancion_id):
     return render(request, 'ajax.html', context)
 
 ####### REGISTRAR VOTOS FORMULARIO ################
-# views.py
-
-
 
 def registrar_votos(request):
     if request.method == 'GET':
@@ -95,13 +91,11 @@ def registrar_votos(request):
         for cancion_id in canciones_seleccionadas:
             try:
                 # Buscar la canción por ID
-                cancion = Cancion.objects.get(id=cancion_id)
-                # Buscar si ya existe un registro de votos para esta canción
-                voto, created = Voto.objects.get_or_create(cancion=cancion)
-                
-                # Si ya existe un voto, incrementamos su contador
-                voto.numero_votos += 1
-                voto.save()
+                cancion = get_object_or_404(Cancion, id=cancion_id)
+
+                # Crear un nuevo registro de voto para esta canción
+                Voto.objects.create(cancion=cancion, valor=1, fecha=now())
+    
             except Cancion.DoesNotExist:
                 continue  # Si no existe la canción, la ignoramos
 
