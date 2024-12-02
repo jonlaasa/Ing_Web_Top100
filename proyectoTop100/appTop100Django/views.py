@@ -1,12 +1,13 @@
 from .models import Estilo, Interprete, Cancion,Voto
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render,redirect
+from django.shortcuts import get_object_or_404, get_list_or_404, render,redirect
 from django.contrib import messages
 from django.utils.timezone import now
+from django_ratelimit.decorators import ratelimit
 
 # Página principal
 def index(request):
-    estilos = Estilo.objects.all()  # Obtiene todos los estilos
+    estilos = get_list_or_404(Estilo.objects.all()) # Obtiene todos los estilos
     top_canciones_por_estilo = []  
     for estilo in estilos:
         # Obtiene la mejor canción del estilo según el ranking
@@ -23,12 +24,12 @@ def index(request):
 ########### CANCIONES ################
 # Visualizar la lista de canciones
 def lista_canciones(request):
-    canciones = Cancion.objects.order_by('ranking').all()
+    canciones = get_list_or_404(Cancion.objects.order_by('ranking').all())
     context = {'canciones': canciones}
     return render(request, 'lista_canciones.html', context)
 
 def formulario(request):
-    canciones = Cancion.objects.all()
+    canciones = get_list_or_404(Cancion.objects.all())
     context = {'canciones': canciones}
     return render(request, 'formulario.html', context)
 
@@ -49,7 +50,7 @@ def detalles_cancion(request, cancion_id):
 ########### ESTILOS ######################################
 # Visualizar la lista de estilos musicales
 def lista_estilos(request):
-    estilos = Estilo.objects.all()
+    estilos = get_list_or_404(Estilo.objects.all())
     context = {'estilos': estilos}
     return render(request, 'lista_estilos.html', context)
 
@@ -64,7 +65,7 @@ def detalles_estilo(request, estilo_id):
 
 ############### INTERPRETES ##############################
 def lista_interpretes(request):
-    interpretes = Interprete.objects.order_by('nombre').all()
+    interpretes = get_list_or_404(Interprete.objects.order_by('nombre').all())
     context = {'interpretes': interpretes}
     return render(request, 'lista_interpretes.html', context)
 
@@ -82,15 +83,19 @@ def ajax(request, cancion_id):
     return render(request, 'ajax.html', context)
 
 ####### REGISTRAR VOTOS FORMULARIO ################
-
+@ratelimit(key='ip', rate='5/m', method='ALL')
 def registrar_votos(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
         # Obtener la lista de canciones seleccionadas
-        canciones_seleccionadas = request.GET.getlist('canciones')
+        canciones_seleccionadas = request.POST.getlist('canciones')
 
         for cancion_id in canciones_seleccionadas:
             try:
+
                 # Buscar la canción por ID
+                if not cancion_id.isdigit():  # Evitar inyecciones
+                    continue # Se ignora si no en numerico
+
                 cancion = get_object_or_404(Cancion, id=cancion_id)
 
                 # Crear un nuevo registro de voto para esta canción

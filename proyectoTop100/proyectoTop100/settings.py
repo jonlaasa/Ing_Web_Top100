@@ -140,7 +140,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-## Adittional Security Measures
+##################  Adittional Security Measures
+
+SECURE_BROWSER_XSS_FILTER = True
+
 X_FRAME_OPTIONS = 'DENY'
 
 #SECURE_SSL_REDIRECT = True ## To allow HTTPS
+SECURE_HSTS_SECONDS = 518400 
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 1048576  # Límite de 1 MB
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
