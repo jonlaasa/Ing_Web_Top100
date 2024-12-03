@@ -35,12 +35,20 @@ class InterpreteAdmin(admin.ModelAdmin):
     # Acción personalizada para incrementar oyentes mensuales
     def increase_oyentes_mensuales(self, request, queryset):
         for interprete in queryset:
-            interprete.oyentes_mensuales += 1000  # Aumentar 1000 oyentes
+            interprete.oyentes_mensuales += 0000  # Aumentar 1000 oyentes
             interprete.save()
         self.message_user(request, "¡Oyentes mensuales incrementados!")
     increase_oyentes_mensuales.short_description = 'Incrementar oyentes mensuales'
 
 admin.site.register(Interprete, InterpreteAdmin)
+
+# Inline para el modelo Voto
+class VotoInline(admin.TabularInline):
+    model = Voto
+    extra = 1  # Número de filas vacías para agregar nuevos votos
+    fields = ('valor', 'fecha',)
+    readonly_fields = ('fecha',)  # Hacer la fecha solo lectura
+    can_delete = True  # Permitir eliminación directa
 
 # Personalización avanzada para el modelo Cancion
 class CancionAdmin(admin.ModelAdmin):
@@ -48,7 +56,9 @@ class CancionAdmin(admin.ModelAdmin):
     search_fields = ['titulo', 'estilo__nombre']
     list_filter = ['fecha', 'estilo']
     filter_horizontal = ('intepretes',)
+    autocomplete_fields = ['estilo']  # Mejor experiencia al buscar estilos
     actions = ['reset_ranking']
+    inlines = [VotoInline]  # Añadir Votos como inline
     
     # Mostrar imagen en miniatura en la vista de lista
     def imagen_thumbnail(self, obj):
