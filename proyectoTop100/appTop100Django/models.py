@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.timezone import now
+from django.utils import timezone
+import datetime
 
 #Clase estilo con su nombre y descripcion
 class Estilo(models.Model):
@@ -9,7 +11,6 @@ class Estilo(models.Model):
     def __str__(self):
         return self.nombre  
        
-
 
 #Clase interprete con su nombre.. integrantes, oyentes mensuales E IMAGEN
 class Interprete(models.Model):
@@ -44,4 +45,3 @@ class Voto(models.Model):
 
     def __str__(self):
         return f"Voto para {self.cancion.titulo}: Fecha: {self.fecha}"
-
