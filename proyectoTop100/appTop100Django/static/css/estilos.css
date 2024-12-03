@@ -268,22 +268,22 @@ a.button:hover {
 
 /* Estilo general para imágenes */
 img {
-    max-width: 100%; /* Se adapta al contenedor sin superar su tamaño */
+    max-width: 100%; 
 }
 
 /* Imágenes en vistas de detalles */
 .detalle-cancion {
-    width: 200px; /* Fija el ancho */
-    height: 200px; /* Fija el alto */
-    object-fit: cover; /* Recorta la imagen */
-    display: block; /* Renderiza como bloque */
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover;
+    display: block; 
 }
 
 .detalle-interprete {
-    width: 350px; /* Fija el ancho */
-    height: 350px; /* Fija el alto */
-    object-fit: cover; /* Recorta la imagen */
-    display: block; /* Renderiza como bloque */
+    width: 350px; 
+    height: 350px; 
+    object-fit: cover; 
+    display: block; 
     margin: 0 auto;
     border-radius: 10px;
 }
@@ -305,25 +305,30 @@ img {
     border-radius: 15px; 
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
     background-color: #222; 
+
 }
 
+.carousel-inner {
+    display: center; 
+    align-items: center; 
+    height: 100%; 
+    width: 100%;
+}
+
+
 /* Imágenes del carrusel */
-.carousel .topcanciones-img {
-    width: 600px; 
-    height: 450px; 
-    object-fit: cover; /* Ajuste de la imagen */
-    transition: transform 0.3s ease-in-out; 
+.topcanciones-img {
+    max-width: 100%; 
+    min-height: 400px;
+    height: auto;
+    object-fit: cover; 
+    transition: transform 0.3s ease-in-out;
+    display: block; 
+    margin: auto; 
 }
 
 .carousel .topcanciones-img:hover {
     transform: scale(1.05); /
-}
-
-/* Contenedor interno del carrusel */
-.carousel-inner {
-    display: flex; 
-    align-items: center; 
-    height: auto;
 }
 
 /* Captions (textos dentro del carrusel) */
@@ -333,14 +338,14 @@ img {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
-    color: white; /* Texto claro */
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: white; 
     padding: 10px 20px;
-    border-radius: 10px; /* Bordes suaves */
-    font-family: 'Arial', sans-serif; /* Fuente profesional */
+    border-radius: 10px; 
+    font-family: 'Arial', sans-serif; 
     font-size: 1.2rem;
     line-height: 1.5;
-    width: 80%; /* Ajusta el ancho del caption */
+    width: 90%; 
     z-index: 10;
 }
 
