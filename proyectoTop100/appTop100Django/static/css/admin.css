@@ -1,0 +1,294 @@
+/* admin.css */
+
+/* Fuente Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+/* General */
+body, html {
+    font-family: 'Poppins', sans-serif !important;
+    background-color: #f4f6f9 !important;
+    color: #333 !important;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Ajustar el contenedor principal */
+#content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%; 
+    margin: 0 auto;
+}
+
+/* Ajuste específico del título */
+#content h1 {
+    margin-top: 1px; 
+    margin-bottom: 1px; 
+    text-align: center; 
+    font-size: 1.9rem; 
+    padding: 0; 
+}
+
+/* Ancho completo de módulos principales */
+#content-main, #content-related {
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+/* Encabezado */
+#header {
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}
+
+#user-tools {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#user-tools a, 
+#user-tools button {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+#user-tools a:hover,
+#user-tools button:hover {
+    color: #dbeafe;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Contenedor principal */
+#container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Contenido principal */
+#content-main {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablas generales */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+table th {
+    background-color: #3b82f6;
+    color: white;
+    padding: 12px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+table tr:hover {
+    background-color: #f9fafb;
+}
+
+/* Módulo: app-appTop100Django */
+.app-appTop100Django {
+    background-color: #f4f6f9;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+.app-appTop100Django table caption a.section {
+    font-size: 18px;
+    color: #3b82f6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.app-appTop100Django table caption a.section:hover {
+    text-decoration: underline;
+    color: #2563eb;
+}
+
+.app-appTop100Django table tr.model-cancion td a.addlink,
+.app-appTop100Django table tr.model-estilo td a.addlink,
+.app-appTop100Django table tr.model-interprete td a.addlink,
+.app-appTop100Django table tr.model-voto td a.addlink {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.app-appTop100Django table tr td a.addlink:hover {
+    text-decoration: underline;
+}
+
+/* Módulo: app-auth */
+.app-auth {
+    background-color: #f4f6f9;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+/* Estilos para el módulo de acciones recientes */
+#recent-actions-module {
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid #e5e7eb; /* Borde gris claro */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 20px 0; /* Separación del resto del contenido */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Asegurar que el módulo ocupe todo el ancho */
+#recent-actions-module {
+    width: 100%;
+    box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+}
+
+/* Estilizar el título del módulo */
+#recent-actions-module h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Estilizar las acciones recientes */
+#recent-actions-module ul.actionlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#recent-actions-module ul.actionlist li {
+    padding: 10px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#recent-actions-module ul.actionlist li:last-child {
+    border-bottom: none; /* Sin borde para el último elemento */
+}
+
+#recent-actions-module ul.actionlist li:hover {
+    background-color: #f9fafb; /* Fondo gris claro al pasar el ratón */
+}
+
+/* Estilizar los enlaces de las acciones */
+#recent-actions-module ul.actionlist li a {
+    text-decoration: none;
+    color: #3b82f6; /* Azul principal */
+    font-weight: 500;
+}
+
+#recent-actions-module ul.actionlist li a:hover {
+    color: #2563eb; /* Azul más oscuro al pasar el ratón */
+}
+
+/* Estilo para las etiquetas mini y quiet */
+#recent-actions-module ul.actionlist li .mini.quiet {
+    font-size: 0.85em;
+    color: #6b7280; /* Gris neutro */
+}
+
+
+/* Botones */
+button, 
+input[type="submit"], 
+.btn, 
+.object-tools a {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover, 
+input[type="submit"]:hover, 
+.btn:hover, 
+.object-tools a:hover {
+    background-color: #2563eb;
+}
+
+/* Formulario */
+.form-row .field-box input,
+.form-row .field-box select,
+.form-row .field-box textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: #f9fafb;
+    font-size: 14px;
+}
+
+/* Footer */
+#footer {
+    background-color: #f4f6f9;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* Otros */
+.inline-related {
+    margin: 20px 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    background-color: #ffffff;
+    padding: 15px;
+}
