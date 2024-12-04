@@ -11,6 +11,8 @@
 {% block contenido %}
 <h2>{% trans "Formulario para votar cancion" %}</h2>
 
+<section class="formulario">
+
 <form id="formularioCanciones" method="POST" action="{% url 'registrar_votos' %}" onreset="borrarWarn()" onsubmit="return validarForm()">
     {% csrf_token %}
 
@@ -31,5 +33,19 @@
         <input type="reset" value="{% trans 'Borrar' %}" />
     </p>
 </form>
+</section>
+
+<section class="rankingVotos">
+<!-- Lista de canciones ordenadas por votos -->
+<h2>Ranking</h2>
+<ul>
+    {% for cancion in top_canciones_voto %}
+        <li class="rank-item">
+            <strong>TOP {{ forloop.counter }}:</strong><a href="{% url 'detalles_cancion' cancion.id %}"> {{ cancion.titulo }}</a> - {{ cancion.estilo.nombre }} 
+            ({% trans "Total de votos" %}: {{ cancion.total_votos }})
+        </li>
+    {% endfor %}
+</ul>
+</section>
 
 {% endblock %}

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, get_list_or_404, render,redirect
 from django.contrib import messages
 from django.utils.timezone import now
+from django.db.models import Count
 from django_ratelimit.decorators import ratelimit
 
 # Página principal
@@ -29,8 +30,18 @@ def lista_canciones(request):
     return render(request, 'lista_canciones.html', context)
 
 def formulario(request):
+    # Obtener todas las canciones
     canciones = get_list_or_404(Cancion.objects.all())
-    context = {'canciones': canciones}
+
+    # Ordenar canciones por el total de votos
+    canciones_ordenadas_voto = get_list_or_404(Cancion.objects.annotate(total_votos=Count('votos')).order_by('-total_votos'))
+
+    # Contexto para la plantilla
+    context = {
+        'canciones': canciones,
+        'top_canciones_voto': canciones_ordenadas_voto,
+    }
+
     return render(request, 'formulario.html', context)
 
 # Detalles de una canción
@@ -110,3 +121,4 @@ def registrar_votos(request):
     else:
         # Si no es un GET, redirigir al formulario
         return redirect('formulario')  # O a la URL que corresponda para el formulario
+
