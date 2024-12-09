@@ -355,7 +355,6 @@ img {
 }
 
 .carousel-inner {
-    display: center; 
     align-items: center; 
     height: 100%; 
     width: 100%;
@@ -374,7 +373,7 @@ img {
 }
 
 .carousel .topcanciones-img:hover {
-    transform: scale(1.05); /
+    transform: scale(1.05); 
 }
 
 /* Captions (textos dentro del carrusel) */

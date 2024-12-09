@@ -9,9 +9,11 @@
 {% block titulo %}{% trans "Formulario de Canciones" %}{% endblock %}
 
 {% block contenido %}
-<h2>{% trans "Formulario para votar cancion" %}</h2>
 
 <section class="formulario">
+<h2>{% trans "Formulario para votar cancion" %}</h2>
+
+
 
 <form id="formularioCanciones" method="POST" action="{% url 'registrar_votos' %}" onreset="borrarWarn()" onsubmit="return validarForm()">
     {% csrf_token %}
@@ -29,8 +31,8 @@
     </fieldset>
 
     <p>
-        <input type="submit" value="{% trans 'Enviar' %}" />
-        <input type="reset" value="{% trans 'Borrar' %}" />
+        <input type="submit" value="{% trans 'Enviar' %}">
+        <input type="reset" value="{% trans 'Borrar' %}">
     </p>
 </form>
 </section>

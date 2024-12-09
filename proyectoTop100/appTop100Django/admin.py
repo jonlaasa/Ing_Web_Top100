@@ -28,14 +28,14 @@ class InterpreteAdmin(admin.ModelAdmin):
     # Mostrar imagen en miniatura en la vista de lista
     def imagen_thumbnail(self, obj):
         if obj.imagen:
-            return format_html('<img src="{}" width="50" height="50" />', obj.imagen.url)
+            return format_html('<img src="{}" alt="Imagen Interprete" width="50" height="50">', obj.imagen.url)
         return 'Sin Imagen'
     imagen_thumbnail.short_description = 'Imagen'
     
     # Acción personalizada para incrementar oyentes mensuales
     def increase_oyentes_mensuales(self, request, queryset):
         for interprete in queryset:
-            interprete.oyentes_mensuales += 0000  # Aumentar 1000 oyentes
+            interprete.oyentes_mensuales += 100000  # Aumentar 100000 oyentes
             interprete.save()
         self.message_user(request, "¡Oyentes mensuales incrementados!")
     increase_oyentes_mensuales.short_description = 'Incrementar oyentes mensuales'
@@ -63,7 +63,7 @@ class CancionAdmin(admin.ModelAdmin):
     # Mostrar imagen en miniatura en la vista de lista
     def imagen_thumbnail(self, obj):
         if obj.imagen:
-            return format_html('<img src="{}" width="50" height="50" />', obj.imagen.url)
+            return format_html('<img src="{}" alt="Imagen Cancion" width="50" height="50">', obj.imagen.url)
         return 'Sin Imagen'
     imagen_thumbnail.short_description = 'Imagen'
     

@@ -33,7 +33,7 @@ body, html {
 
 /* Ancho completo de módulos principales */
 #content-main, #content-related {
-    width: 100%;
+    width: 80%;
     box-sizing: border-box; 
 }
 
